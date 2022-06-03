@@ -1,0 +1,148 @@
+:root{ /*variables para cambiar de un tiron colores de la pagina*/
+    --main-clr: #262729; /*clr principal*/
+    --main-clr-2: #3b3d40; /*mas claro*/
+
+    --clr: white; /*para las letras, bordes, etc*/
+}
+*{ /*atributos y sus valores default para cada elemento*/
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+
+    font-family: Helvetica;
+    text-decoration: none;
+    color: var(--clr);
+
+    transition: 500ms;
+}
+
+body {
+    background: var(--main-clr);
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+/*estilos que no son del menu*/
+h1{
+    margin-top: 80px;
+}
+h3{
+    background: var(--main-clr-2);
+    padding: 3px;
+}
+p{
+    margin: 15px;
+}
+.denOliv{
+    color: aqua;
+}
+
+/*estilos del menu*/
+hr{
+    height: 25px;
+}
+header{
+    width: 100%;
+}
+
+header label {
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border: 2px solid var(--clr);
+
+    background: var(--main-clr);
+
+    font-size: 30px;
+
+    /*Para que siempre este flotando encima de todo*/
+    z-index: 2;
+    position: fixed;
+
+}
+
+header label:hover{
+    cursor: pointer;
+    background-color: var(--main-clr-2);
+}
+
+#btn-menu {
+    display: none;
+}
+
+#btn-menu:checked ~ .menu {
+    margin-left: 0; 
+}
+
+.menu{
+    border-bottom: 2px solid var(--clr);
+    border-radius: 0;
+    background: var(--main-clr);
+    width: 100%;
+
+    /*Para que siempre este flotando encima de todo*/
+    z-index: 1;
+    position: fixed;
+}
+
+.menu ul{
+    list-style: none;
+    background: var(--main-clr);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.menu li a{
+    display: block;
+    padding: 15px 20px;
+    border-radius: 0;
+
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--clr);
+}
+
+.menu li a:hover{
+    background: var(--main-clr-2);
+}
+/*hacer que el menu cambie al tener el ancho de la ventana a cierta cantidad de pixeles*/
+@media (max-width: 750px){
+    hr{
+        display: none;
+    }
+    header label{
+        display: block;
+    }
+    .menu{
+        position: fixed;
+        width: 99%;
+
+        
+        margin-left: -110%;
+
+        border: 2px solid var(--clr);
+
+        z-index: 1;
+        position: fixed;
+    }
+    .menu ul{
+        display: block;
+        justify-content: left;
+        flex-direction: column;
+    }
+    .menu li a{
+        border-left: 0 solid var(--clr);
+        border-radius: 0;
+    }
+    .menu li a:hover{
+        border-left: 20vw solid var(--clr);
+    }
+}
